@@ -86,7 +86,7 @@ def show_help():
     embed.color = CONFIG['STYLE']['FRAME']['default_color']
     embed.set_thumbnail(url='https://s2.coinmarketcap.com/static/img/coins/32x32/%s' %CONFIG['COIN']['id']  + '.png')
 
-    embed.title = "**__LISTA DE COMANDOS__**"
+    embed.title = "**__COMMAND LIST__**"
 
     for comando in sorted(dict.keys(LISTA_COMANDOS)):
         embed.add_field(name="- "+comando.capitalize(), value="*"+LISTA_COMANDOS[comando]+"*", inline=False)
@@ -98,19 +98,19 @@ def show_price():
     embed       = discord.Embed()
     embed.color = CONFIG['STYLE']['FRAME']['default_color']
     embed.set_thumbnail(url='https://s2.coinmarketcap.com/static/img/coins/32x32/%s' %CONFIG['COIN']['id']  + '.png')
-    embed.title = "**__PRECIO DE %s (%s)__**" %(CONFIG['COIN']['name'].upper(), CONFIG['COIN']['acronym'].upper())
+    embed.title = "**__%s (%s)__**" %(CONFIG['COIN']['name'].upper(), CONFIG['COIN']['acronym'].upper())
     embed.url   = 'https://coinmarketcap.com/currencies/' + CONFIG['COIN']['name'] + '/'
 
     try:
         #Read coin stats from coinmarketcap
         coin_stats = get_coinmarketcap_stats(CONFIG['COIN']['acronym'])
 
-        embed.description = "**Ranking:**        " + str('{:,.0f}'.format(coin_stats['data']['rank'])) + "\n" + \
-                            "\n**Price EUR**:     " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['EUR']['price']))) + " €" + \
-                            "\n**Price USD**:     " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['USD']['price']))) + " $" + \
+        embed.description = "**Ranking:**          " + str('{:,.0f}'.format(coin_stats['data']['rank'])) + "\n" + \
+                            "\n**Price EUR**:      " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['EUR']['price']))) + " €" + \
+                            "\n**Price USD**:      " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['USD']['price']))) + " $" + \
                             "\n**MarketCap EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['market_cap']))) + " €" + \
                             "\n**Volume24h EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['volume_24h']))) + " €" + \
-                            "\n**Total distributed**: " + str('{:,.0f}'.format(float(coin_stats['data']['total_supply']))) + " " + coin_stats['data']['symbol'] + "\n" + \
+                            "\n**C.Supply**:       " + str('{:,.0f}'.format(float(coin_stats['data']['total_supply']))) + " " + coin_stats['data']['symbol'] + "\n" + \
                             "\n**Change 01h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_1h']) + "%" + \
                             "\n**Change 24h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_24h']) + \
                             "\n**Change 07d**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_7d']) + "%"
