@@ -60,6 +60,10 @@ def justify_text_dyn (string):
 
     return new_string
 
+def convert_timestamp(timestamp):
+    date = datetime.fromtimestamp(timestamp).strftime('%d-%m-%Y %H:%M')
+    return date
+
 def get_coinmarketcap_id(coin_acronym):
     #Request coin listing to coinmarket cap
     request = requests.get('https://api.coinmarketcap.com/v2/listings/')
@@ -115,7 +119,7 @@ def show_price():
                             "\n**Change 24h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_24h']) + \
                             "\n**Change 07d**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_7d']) + "%"
 
-        embed.set_footer(text="coinmarketcap @%s" %coin_stats['metadata']['timestamp'], icon_url="https://logo.clearbit.com/coinmarketcap.com")
+        embed.set_footer(text="coinmarketcap @%s" %convert_timestamp(coin_stats['metadata']['timestamp']), icon_url="https://logo.clearbit.com/coinmarketcap.com")
 
         #The font is changed so more beautiful if not justified
         #embed.description = '```' + justify_text_dyn(embed.description) + '```'
