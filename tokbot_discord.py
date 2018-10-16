@@ -117,7 +117,8 @@ def show_price():
 
         embed.set_footer(text="coinmarketcap @%s" %coin_stats['metadata']['timestamp'], icon_url="https://logo.clearbit.com/coinmarketcap.com")
 
-        embed.description = '```' + justify_text_dyn(embed.description) + '```'
+        #The font is changed so more beautiful if not justified
+        #embed.description = '```' + justify_text_dyn(embed.description) + '```'
 
     except:
         embed.color = CONFIG['STYLE']['FRAME']['error_color']
