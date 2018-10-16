@@ -80,7 +80,7 @@ def get_coinmarketcap_stats(coin_acronym):
 
     return coin_data
 
-def mostrar_ayuda():
+def show_help():
     # Declare embed object
     embed       = discord.Embed()
     embed.color = CONFIG['STYLE']['FRAME']['default_color']
