@@ -7,7 +7,7 @@
 # If you want o support this repository I accept donations        #
 # even 1 TOK is always welcome :-)!                               #
 # > ethereum address: 0x44F102616C8e19fF3FED10c0b05B3d23595211ce  #
-# > tokugawa address: TjrQBaaCPoVW9mPAZHPfVx9JJCq7yZ7QnA          #
+# > tokugawa address: TqtycVQsthmEtMLGA8RtqHupZNPDH1Fnt9          #
 ###################################################################
 import discord
 import requests
@@ -95,6 +95,8 @@ def show_help():
     for comando in sorted(dict.keys(LISTA_COMANDOS)):
         embed.add_field(name="- "+comando.capitalize(), value="*"+LISTA_COMANDOS[comando]+"*", inline=False)
 
+    embed.set_footer(text="DONATIONS TOK ADDRESS: TqtycVQsthmEtMLGA8RtqHupZNPDH1Fnt9", icon_url="https://png.icons8.com/cotton/2x/donate.png")
+
     return embed
 
 def show_peers():
@@ -111,7 +113,7 @@ def show_peers():
                         "  C:\\users\\(username)\\appdata(hidden)\\roaming\\Tokugawa\n\n" + \
                         "For linux users:\n" + \
                         "  ~/.Tokugawa/Tokugawa.conf\n\n"
-    
+
     embed.description += '```' + \
                          "addnode=181.215.49.203\n" + \
                          "addnode=134.119.181.190\n" + \
