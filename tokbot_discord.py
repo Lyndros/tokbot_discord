@@ -97,6 +97,42 @@ def show_help():
 
     return embed
 
+def show_peers():
+    # Declare embed object
+    embed       = discord.Embed()
+    embed.color = CONFIG['STYLE']['FRAME']['default_color']
+    embed.set_thumbnail(url='https://s2.coinmarketcap.com/static/img/coins/32x32/%s' %CONFIG['COIN']['id']  + '.png')
+
+    embed.title = "**__PEER LIST__**"
+
+    embed.description = "In order to synch faster your wallet please append\n" + \
+                        "the following nodes to the Tokugawa.conf file.\n\n" + \
+                        "For windows users:\n" + \
+                        "  C:\\users\\(username)\\appdata(hidden)\\roaming\\Tokugawa\n\n" + \
+                        "For linux users:\n" + \
+                        "  ~/.Tokugawa/Tokugawa.conf\n\n"
+    
+    embed.description += '```' + \
+                         "addnode=181.215.49.203\n" + \
+                         "addnode=134.119.181.190\n" + \
+                         "addnode=54.158.22.13\n" +\
+                         "addnode=54.152.49.191\n" + \
+                         "addnode=54.88.255.185\n" + \
+                         "addnode=34.224.223.181\n" +\
+                         "addnode=34.229.128.151\n" +\
+                         "addnode=34.236.143.229\n" +\
+                         "addnode=34.201.99.23\n" +\
+                         "addnode=35.172.201.221\n" +\
+                         "addnode=34.201.104.122\n" +\
+                         "addnode=45.32.180.8\n" +\
+                         "addnode=45.76.132.53\n" +\
+                         "addnode=165.227.178.208\n" +\
+                         "addnode=185.228.232.200\n" +\
+                         "addnode=140.82.37.2\n" + \
+                         '```'
+
+    return embed
+
 def show_price():
     # Declare embed object
     embed       = discord.Embed()
@@ -135,6 +171,8 @@ def comando_bot(cmd):
         embed_message = show_help()
     elif (cmd == "PRICE"):
         embed_message = show_price()
+    elif (cmd == "SYNC"):
+        embed_message = show_peers()
     else:
         # Declare embed object
         embed_message       = discord.Embed()
@@ -147,7 +185,8 @@ def comando_bot(cmd):
 #Define global var to store the list of supported commands
 LISTA_COMANDOS = {
   "HELP":               "Shows this help",
-  "PRICE":              "Shows the current coin price"
+  "PRICE":              "Shows the current coin price",
+  "SYNC":               "Helps you to solve your sync issues"
 }
 
 #Tested in iPhone 6S this is the maximum length per string
