@@ -120,7 +120,6 @@ def show_peers():
                          "addnode=162.243.144.16\n" +\
                          "addnode=188.166.1.164\n" + \
                          '```'
-
     return embed
 
 def show_price():
@@ -128,27 +127,24 @@ def show_price():
     embed       = discord.Embed()
     embed.color = CONFIG['STYLE']['FRAME']['default_color']
     embed.set_thumbnail(url='https://s2.coinmarketcap.com/static/img/coins/32x32/%s' %CONFIG['COIN']['id']  + '.png')
-    embed.title = "**__%s (%s)__**" %(CONFIG['COIN']['name'].upper(), CONFIG['COIN']['acronym'].upper())
+    embed.title = "**__PRECIO DE %s (%s)__**" %(CONFIG['COIN']['name'].upper(), CONFIG['COIN']['acronym'].upper())
     embed.url   = 'https://coinmarketcap.com/currencies/' + CONFIG['COIN']['name'] + '/'
 
     try:
         #Read coin stats from coinmarketcap
         coin_stats = get_coinmarketcap_stats(CONFIG['COIN']['acronym'])
 
-        embed.description = "**Ranking:**          " + str('{:,.0f}'.format(coin_stats['data']['rank'])) + "\n" + \
-                            "\n**Price EUR**:      " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['EUR']['price']))) + " €" + \
-                            "\n**Price USD**:      " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['USD']['price']))) + " $" + \
+        embed.description = "**Ranking:**        " + str('{:,.0f}'.format(coin_stats['data']['rank'])) + "\n" + \
+                            "\n**Price EUR**:     " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['EUR']['price']))) + " €" + \
+                            "\n**Price USD**:     " + str('{:,.8f}'.format(float(coin_stats['data']['quotes']['USD']['price']))) + " $" + \
                             "\n**MarketCap EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['market_cap']))) + " €" + \
-                            "\n**Volume24h EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['volume_24h']))) + " €" + \
-                            "\n**C.Supply**:       " + str('{:,.0f}'.format(float(coin_stats['data']['total_supply']))) + " " + coin_stats['data']['symbol'] + "\n" + \
-                            #"\n**Change 01h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_1h']) + "%" + \
+                            "\n**Volum 24h EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['volume_24h']))) + " €" + \
+                            "\n**Emision Actual**: " + str('{:,.0f}'.format(float(coin_stats['data']['total_supply']))) + " " + coin_stats['data']['symbol'] + "\n" + \
+                            "\n**Change 1h **:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_1h']) + "%" + \
                             "\n**Change 24h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_24h']) + \
-                            "\n**Change 07d**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_7d']) + "%"
+                            "\n**Change 7d **:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_7d']) + "%"
 
         embed.set_footer(text="coinmarketcap @%s" %convert_timestamp(coin_stats['metadata']['timestamp']), icon_url="https://logo.clearbit.com/coinmarketcap.com")
-
-        #The font is changed so more beautiful if not justified
-        #embed.description = '```' + justify_text_dyn(embed.description) + '```'
 
     except:
         embed.color = CONFIG['STYLE']['FRAME']['error_color']
