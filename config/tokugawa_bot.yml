@@ -14,9 +14,9 @@ STYLE:
 COIN:
     name:           Tokugawa
     acronym:        TOK
-    decimals:       6
-    explorer_url:   http://explorer.tokugawacoin.com/ext/getaddress/
-    collateral:     2500
+    decimals:       2
+    explorer_url:   http://165.227.180.67/ext/getaddress/
+    collateral:     10000
 
 #SECTION FOR DISCORD PARAMETERS
 DISCORD:

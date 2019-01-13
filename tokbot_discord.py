@@ -108,29 +108,17 @@ def show_peers():
     embed.title = "**__PEER LIST__**"
 
     embed.description = "In order to synch faster your wallet please append\n" + \
-                        "the following nodes to the Tokugawa.conf file.\n\n" + \
+                        "the following nodes to the tokugawa.conf file.\n\n" + \
                         "For windows users:\n" + \
-                        "  C:\\users\\(username)\\appdata(hidden)\\roaming\\Tokugawa\n\n" + \
+                        "  C:\\users\\(username)\\appdata(hidden)\\roaming\\TokugawaCore\n\n" + \
                         "For linux users:\n" + \
-                        "  ~/.Tokugawa/Tokugawa.conf\n\n"
+                        "  ~/.TokugawaCore/tokugawa.conf\n\n"
 
     embed.description += '```' + \
-                         "addnode=181.215.49.203\n" + \
-                         "addnode=134.119.181.190\n" + \
-                         "addnode=54.158.22.13\n" +\
-                         "addnode=54.152.49.191\n" + \
-                         "addnode=54.88.255.185\n" + \
-                         "addnode=34.224.223.181\n" +\
-                         "addnode=34.229.128.151\n" +\
-                         "addnode=34.236.143.229\n" +\
-                         "addnode=34.201.99.23\n" +\
-                         "addnode=35.172.201.221\n" +\
-                         "addnode=34.201.104.122\n" +\
-                         "addnode=45.32.180.8\n" +\
-                         "addnode=45.76.132.53\n" +\
-                         "addnode=165.227.178.208\n" +\
-                         "addnode=185.228.232.200\n" +\
-                         "addnode=140.82.37.2\n" + \
+                         "addnode=165.227.180.67\n" + \
+                         "addnode=167.99.8.23\n" + \
+                         "addnode=162.243.144.16\n" +\
+                         "addnode=188.166.1.164\n" + \
                          '```'
 
     return embed
@@ -153,7 +141,7 @@ def show_price():
                             "\n**MarketCap EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['market_cap']))) + " €" + \
                             "\n**Volume24h EUR**:  " + str('{:,.0f}'.format(float(coin_stats['data']['quotes']['EUR']['volume_24h']))) + " €" + \
                             "\n**C.Supply**:       " + str('{:,.0f}'.format(float(coin_stats['data']['total_supply']))) + " " + coin_stats['data']['symbol'] + "\n" + \
-                            "\n**Change 01h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_1h']) + "%" + \
+                            #"\n**Change 01h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_1h']) + "%" + \
                             "\n**Change 24h**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_24h']) + \
                             "\n**Change 07d**:     " + str(coin_stats['data']['quotes']['EUR']['percent_change_7d']) + "%"
 
